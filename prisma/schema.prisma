@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Users {
+  id String @id @default(uuid())
+  first_name String @db.VarChar(50)
+  last_name String @db.VarChar(50)
+  email String @db.VarChar(100) @unique
+  password String @db.VarChar(100)
+
+  @@map("users")
+}
+
+model Doctors {
+  id String @id @default(uuid())
+  name String @db.VarChar(50)
+  email String @db.VarChar(100) @unique
+  medical_area String @db.VarChar(100)
+  consults Consults[]
+
+  @@map("doctors")
+}
+
+model Clients {
+  id String @id @default(uuid())
+  first_name String @db.VarChar(50)
+  last_name String @db.VarChar(50)
+  email String @db.VarChar(100) @unique
+  phone_number String @db.VarChar(20)
+  consults Consults[]
+
+  @@map("clients")
+}
+
+model Consults {
+  id String @id @default(uuid())
+  client_id String
+  client Clients @relation(fields:[client_id], references: [id])
+  doctor_id String
+  doctor Doctors @relation(fields:[doctor_id], references:[id])
+  date DateTime
+  status ConsultStatus @default(SCHEDULED)
+  // UNIQUE DE DOCTOR_ID E DATE EVITA MARCAR MESMO HORARIO E MEDICO DUAS CONSULTAS
+  @@unique([doctor_id, date])
+  @@map("consults")
+}
+
+enum ConsultStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELED
+}
