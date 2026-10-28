@@ -1,10 +1,21 @@
 import 'dotenv/config'
 import express from 'express'
-import { makeCreateClientController } from './src/factories/client.js'
+import {
+    makeCreateClientController,
+    makeGetClientByIdController,
+} from './src/factories/client.js'
 
 const app = express()
 app.use(express.json())
 
+// get clients by id
+app.get('/api/clients/:clientId', async (req, res) => {
+    const getClientByIdController = makeGetClientByIdController()
+    const { statusCode, body } = await getClientByIdController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// create client
 app.post('/api/clients', async (req, res) => {
     const createClientController = makeCreateClientController()
     const { statusCode, body } = await createClientController.execute(req)

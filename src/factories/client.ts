@@ -1,9 +1,16 @@
-import { CreateClientController } from '../controller/index.js'
+import {
+    CreateClientController,
+    GetClientByIdController,
+} from '../controller/index.js'
 import {
     PostgresCreateClientRepository,
     PostgresGetClientByEmailRepository,
+    PostgresGetClientByIdRepository,
 } from '../repositories/index.js'
-import { CreateClientUseCase } from '../use-cases/index.js'
+import {
+    CreateClientUseCase,
+    GetClientByIdUseCase,
+} from '../use-cases/index.js'
 
 export const makeCreateClientController = () => {
     const createClientRepository = new PostgresCreateClientRepository()
@@ -19,4 +26,18 @@ export const makeCreateClientController = () => {
     )
 
     return createClientController
+}
+
+export const makeGetClientByIdController = () => {
+    const getClientByIdRepository = new PostgresGetClientByIdRepository()
+
+    const getClientByIdUseCase = new GetClientByIdUseCase(
+        getClientByIdRepository,
+    )
+
+    const getClientByIdController = new GetClientByIdController(
+        getClientByIdUseCase,
+    )
+
+    return getClientByIdController
 }
