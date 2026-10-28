@@ -7,3 +7,10 @@ export class EmailAlreadyInUseError extends Error {
         this.name = 'EmailAlreadyInUseError'
     }
 }
+
+export class ClientNotExistsError extends Error {
+    constructor(clientId: string) {
+        super(`The client id ${clientId} not exists.`)
+        this.name = 'ClientNotExistsError'
+    }
+}
