@@ -2,6 +2,7 @@ import 'dotenv/config'
 import express from 'express'
 import {
     makeCreateClientController,
+    makeDeleteClientController,
     makeGetClientByIdController,
 } from './src/factories/client.js'
 
@@ -19,6 +20,13 @@ app.get('/api/clients/:clientId', async (req, res) => {
 app.post('/api/clients', async (req, res) => {
     const createClientController = makeCreateClientController()
     const { statusCode, body } = await createClientController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// delete client
+app.delete('/api/clients/:clientId', async (req, res) => {
+    const deleteClientController = makeDeleteClientController()
+    const { statusCode, body } = await deleteClientController.execute(req)
     res.status(statusCode).send(body)
 })
 
