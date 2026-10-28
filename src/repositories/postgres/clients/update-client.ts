@@ -8,7 +8,7 @@ interface UpdateClientParamsProps {
     phon_number?: string
 }
 
-interface UpdateClientRepositoryParams {
+export interface UpdateClientRepositoryParams {
     clientId: string
     updateClientParams: UpdateClientParamsProps
 }
