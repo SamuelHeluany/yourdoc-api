@@ -11,3 +11,9 @@ export const createClientSchema = z.object({
         message: 'Please, provide a valid phone number(DDD + PHONE NUMBER).',
     }),
 })
+// passa o update com partial do create, ou seja, transforma tudo do create em opcional. Se passar uma propriedade, ele aciona o zod do create
+// Passa o update com um strickObject, passando o createClientSchema com os campos não obrigatórios e o shape, caso o retorno do shape for algum campo invalido, ele retorna a mensagem de erro
+export const updateClientSchema = z.strictObject(
+    createClientSchema.partial().shape,
+    'Some provided field is not allowed',
+)
