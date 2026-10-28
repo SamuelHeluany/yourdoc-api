@@ -4,6 +4,7 @@ import {
     makeCreateClientController,
     makeDeleteClientController,
     makeGetClientByIdController,
+    makeUpdateClientController,
 } from './src/factories/client.js'
 
 const app = express()
@@ -20,6 +21,13 @@ app.get('/api/clients/:clientId', async (req, res) => {
 app.post('/api/clients', async (req, res) => {
     const createClientController = makeCreateClientController()
     const { statusCode, body } = await createClientController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// update client
+app.patch('/api/clients/:clientId', async (req, res) => {
+    const updateClientController = makeUpdateClientController()
+    const { statusCode, body } = await updateClientController.execute(req)
     res.status(statusCode).send(body)
 })
 
