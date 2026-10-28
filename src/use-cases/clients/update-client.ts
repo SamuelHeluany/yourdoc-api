@@ -22,7 +22,7 @@ interface UpdateClientRepositoryProps {
 
 export class UpdateClientUseCase {
     constructor(
-        private readonly getUserByIdRepository: GetClientByIdRepositoryProps,
+        private readonly getClientByIdRepository: GetClientByIdRepositoryProps,
         private readonly getClientByEmailRepository: GetClientByEmailRepositoryProps,
         private readonly updateClientRepository: UpdateClientRepositoryProps,
     ) {}
@@ -30,7 +30,7 @@ export class UpdateClientUseCase {
         clientId,
         updateClientParams,
     }: UpdateClientRepositoryParams): Promise<Clients> {
-        const userExists = await this.getUserByIdRepository.execute(clientId)
+        const userExists = await this.getClientByIdRepository.execute(clientId)
 
         if (!userExists) {
             throw new ClientNotExistsError(clientId)
