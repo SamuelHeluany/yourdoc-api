@@ -9,7 +9,8 @@ export class DeleteClientUseCase {
         private readonly deleteClientRepository: DeleteClientRepositoryProps,
     ) {}
     async execute(clientId: string): Promise<Clients | null> {
-        const deletedUser = await this.deleteClientRepository.execute(clientId)
-        return deletedUser
+        const deletedClient =
+            await this.deleteClientRepository.execute(clientId)
+        return deletedClient
     }
 }
