@@ -5,3 +5,4 @@ export * from './postgres/clients/delete-client.js'
 export * from './postgres/clients/update-client.js'
 
 export * from './postgres/doctors/create-doctor.js'
+export * from './postgres/doctors/get-doctor-by-email.js'
