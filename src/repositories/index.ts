@@ -3,3 +3,5 @@ export * from './postgres/clients/get-client-by-email.js'
 export * from './postgres/clients/get-client-by-id.js'
 export * from './postgres/clients/delete-client.js'
 export * from './postgres/clients/update-client.js'
+
+export * from './postgres/doctors/create-doctor.js'
