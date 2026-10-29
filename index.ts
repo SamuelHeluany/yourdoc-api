@@ -8,6 +8,7 @@ import {
 } from './src/factories/client.js'
 import {
     makeCreateDoctorController,
+    makeDeleteDoctorController,
     makeGetDoctorByIdController,
 } from './src/factories/doctors.js'
 
@@ -53,6 +54,13 @@ app.post('/api/doctors', async (req, res) => {
 app.get('/api/doctors/:doctorId', async (req, res) => {
     const getDoctorByIdController = makeGetDoctorByIdController()
     const { statusCode, body } = await getDoctorByIdController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// delete doctor by id
+app.delete('/api/doctors/:doctorId', async (req, res) => {
+    const deleteDoctorController = makeDeleteDoctorController()
+    const { statusCode, body } = await deleteDoctorController.execute(req)
     res.status(statusCode).send(body)
 })
 
