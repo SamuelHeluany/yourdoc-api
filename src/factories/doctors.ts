@@ -2,17 +2,20 @@ import {
     CreateDoctorController,
     DeleteDoctorController,
     GetDoctorByIdController,
+    UpdateDoctorController,
 } from '../controller/index.js'
 import {
     PostgresCreateDoctorRepository,
     PostgresDeleteDoctorRepository,
     PostgresGetDoctorByEmailRepository,
     PostgresGetDoctorByIdRepository,
+    PostgresUpdateDoctorRepository,
 } from '../repositories/index.js'
 import {
     CreateDoctorUseCase,
     DeleteDoctorUseCase,
     GetDoctorByIdUseCase,
+    UpdateDoctorUseCase,
 } from '../use-cases/index.js'
 
 export const makeCreateDoctorController = () => {
@@ -55,4 +58,21 @@ export const makeDeleteDoctorController = () => {
     )
 
     return deleteDoctorController
+}
+
+export const makeUpdateDoctorController = () => {
+    const getDoctorByIdRepository = new PostgresGetDoctorByIdRepository()
+    const getDoctorByEmailRepository = new PostgresGetDoctorByEmailRepository()
+    const updateDoctorRepository = new PostgresUpdateDoctorRepository()
+
+    const updateDoctorUseCase = new UpdateDoctorUseCase(
+        getDoctorByIdRepository,
+        getDoctorByEmailRepository,
+        updateDoctorRepository,
+    )
+    const updateDoctorController = new UpdateDoctorController(
+        updateDoctorUseCase,
+    )
+
+    return updateDoctorController
 }

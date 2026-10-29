@@ -10,6 +10,7 @@ import {
     makeCreateDoctorController,
     makeDeleteDoctorController,
     makeGetDoctorByIdController,
+    makeUpdateDoctorController,
 } from './src/factories/doctors.js'
 
 const app = express()
@@ -61,6 +62,13 @@ app.get('/api/doctors/:doctorId', async (req, res) => {
 app.delete('/api/doctors/:doctorId', async (req, res) => {
     const deleteDoctorController = makeDeleteDoctorController()
     const { statusCode, body } = await deleteDoctorController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// update doctor
+app.patch('/api/doctors/:doctorId', async (req, res) => {
+    const updateDoctorController = makeUpdateDoctorController()
+    const { statusCode, body } = await updateDoctorController.execute(req)
     res.status(statusCode).send(body)
 })
 
