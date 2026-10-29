@@ -5,3 +5,4 @@ export * from './clients/update-client.js'
 
 export * from './doctors/create-doctor.js'
 export * from './doctors/get-doctor-by-id.js'
+export * from './doctors/delete-doctor.js'
