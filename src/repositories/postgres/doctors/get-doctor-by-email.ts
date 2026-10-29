@@ -3,7 +3,7 @@ import { prisma } from '../../../../prisma/prisma.js'
 
 // get doctor by email
 
-export class PostgresGetDoctorByEmail {
+export class PostgresGetDoctorByEmailRepository {
     async execute(email: string): Promise<Doctors | null> {
         return await prisma.doctors.findUnique({
             where: {
