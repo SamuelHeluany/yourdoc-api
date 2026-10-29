@@ -6,6 +6,7 @@ import {
     makeGetClientByIdController,
     makeUpdateClientController,
 } from './src/factories/client.js'
+import { makeCreateDoctorController } from './src/factories/doctors.js'
 
 const app = express()
 app.use(express.json())
@@ -35,6 +36,13 @@ app.patch('/api/clients/:clientId', async (req, res) => {
 app.delete('/api/clients/:clientId', async (req, res) => {
     const deleteClientController = makeDeleteClientController()
     const { statusCode, body } = await deleteClientController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// Create Doctor
+app.post('/api/doctors', async (req, res) => {
+    const createDoctorController = makeCreateDoctorController()
+    const { statusCode, body } = await createDoctorController.execute(req)
     res.status(statusCode).send(body)
 })
 
