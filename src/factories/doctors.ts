@@ -1,9 +1,16 @@
-import { CreateDoctorController } from '../controller/index.js'
+import {
+    CreateDoctorController,
+    GetDoctorByIdController,
+} from '../controller/index.js'
 import {
     PostgresCreateDoctorRepository,
     PostgresGetDoctorByEmailRepository,
+    PostgresGetDoctorByIdRepository,
 } from '../repositories/index.js'
-import { CreateDoctorUseCase } from '../use-cases/index.js'
+import {
+    CreateDoctorUseCase,
+    GetDoctorByIdUseCase,
+} from '../use-cases/index.js'
 
 export const makeCreateDoctorController = () => {
     const getDoctorByEmailRepository = new PostgresGetDoctorByEmailRepository()
@@ -19,4 +26,18 @@ export const makeCreateDoctorController = () => {
     )
 
     return createDoctorController
+}
+
+export const makeGetDoctorByIdController = () => {
+    const getDoctorByIdRepository = new PostgresGetDoctorByIdRepository()
+
+    const getDoctorByIdUseCase = new GetDoctorByIdUseCase(
+        getDoctorByIdRepository,
+    )
+
+    const getDoctorByIdController = new GetDoctorByIdController(
+        getDoctorByIdUseCase,
+    )
+
+    return getDoctorByIdController
 }
