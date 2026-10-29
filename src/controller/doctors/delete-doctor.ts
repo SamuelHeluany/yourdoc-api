@@ -23,7 +23,7 @@ export class DeleteDoctorController {
             const deletedDoctor =
                 await this.deleteDoctorUseCase.execute(doctorId)
 
-            if (!doctorId) {
+            if (!deletedDoctor) {
                 return doctorNotFoundResponse()
             }
 
