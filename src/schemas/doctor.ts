@@ -8,3 +8,8 @@ export const createDoctorSchema = z.object({
         .trim()
         .min(1, { message: 'Medical area is required.' }),
 })
+
+export const updateDoctorSchema = z.strictObject(
+    createDoctorSchema.partial().shape,
+    'Some provided field is not allowed.',
+)
