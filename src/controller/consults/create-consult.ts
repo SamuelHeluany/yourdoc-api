@@ -15,9 +15,9 @@ export class CreateConsultController {
     constructor(
         private readonly createConsultUseCase: CreateConsultUseCaseProps,
     ) {}
-    async execute(HttpRequest: HttpRequest): Promise<HttpResponse> {
+    async execute(httpRequest: HttpRequest): Promise<HttpResponse> {
         try {
-            const params = HttpRequest.body as CreateConsultParams
+            const params = httpRequest.body as CreateConsultParams
 
             await createConsultSchema.parseAsync(params)
 
