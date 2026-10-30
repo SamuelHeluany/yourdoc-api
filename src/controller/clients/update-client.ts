@@ -5,7 +5,10 @@ import { updateClientSchema } from '../../schemas/client.js'
 import { badRequest, ok, serverError } from '../helpers/http.js'
 import { checkIfIdIsValid, invalidIdResponse } from '../helpers/validation.js'
 import { HttpRequest, HttpResponse } from '../types.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import {
+    ClientNotExistsError,
+    EmailAlreadyInUseError,
+} from '../../errors/user.js'
 
 interface updateClientUseCaseProps {
     execute({
@@ -43,6 +46,10 @@ export class UpdateClientController {
             }
             // faz a comparação de que se o erro for uma instancia de EmailAlreadyInUseError, significa que esse erro foi emitido em alguma camada (no caso na use-case) e passa um badRequest com a mensagem do EmailAlreadyInUseError
             if (error instanceof EmailAlreadyInUseError) {
+                return badRequest({ message: error.message })
+            }
+
+            if (error instanceof ClientNotExistsError) {
                 return badRequest({ message: error.message })
             }
             console.error(error)
