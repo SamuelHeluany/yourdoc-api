@@ -8,3 +8,8 @@ export const invalidIdResponse = () => {
         message: 'The provided ID is not valid.',
     })
 }
+
+type RequiredField = 'clientId' | 'doctorId' | 'consultId'
+
+export const requiredFieldMissingResponse = (missingField: RequiredField) =>
+    badRequest({ message: `Missing params: ${missingField}` })
