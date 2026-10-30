@@ -8,6 +8,8 @@ export * from './doctors/get-doctor-by-id.js'
 export * from './doctors/delete-doctor.js'
 export * from './doctors/update-doctor.js'
 
+export * from './consults/create-consult.js'
+
 export * from './helpers/http.js'
 export * from './helpers/index.js'
 
