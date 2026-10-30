@@ -9,7 +9,7 @@ interface GetConsultsByClientIdRepositoryProps {
     execute(clientId: string): Promise<Consults[]>
 }
 
-interface GetConsultsByClientIdParams {
+export interface GetConsultsByClientIdParams {
     clientId: string
 }
 
