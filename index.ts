@@ -12,9 +12,12 @@ import {
     makeGetDoctorByIdController,
     makeUpdateDoctorController,
 } from './src/factories/doctors.js'
+import { makeCreateConsultController } from './src/factories/consult.js'
 
 const app = express()
 app.use(express.json())
+
+// CLIENT
 
 // get clients by id
 app.get('/api/clients/:clientId', async (req, res) => {
@@ -44,6 +47,8 @@ app.delete('/api/clients/:clientId', async (req, res) => {
     res.status(statusCode).send(body)
 })
 
+// DOCTOR
+
 // Create Doctor
 app.post('/api/doctors', async (req, res) => {
     const createDoctorController = makeCreateDoctorController()
@@ -69,6 +74,14 @@ app.delete('/api/doctors/:doctorId', async (req, res) => {
 app.patch('/api/doctors/:doctorId', async (req, res) => {
     const updateDoctorController = makeUpdateDoctorController()
     const { statusCode, body } = await updateDoctorController.execute(req)
+    res.status(statusCode).send(body)
+})
+
+// CONSULT
+
+app.post('/api/consults', async (req, res) => {
+    const createConsultController = makeCreateConsultController()
+    const { statusCode, body } = await createConsultController.execute(req)
     res.status(statusCode).send(body)
 })
 
