@@ -9,3 +9,5 @@ export * from './postgres/doctors/get-doctor-by-email.js'
 export * from './postgres/doctors/get-doctor-by-id.js'
 export * from './postgres/doctors/delete-doctor.js'
 export * from './postgres/doctors/update-doctor.js'
+
+export * from './postgres/consults/create-consult.js'
