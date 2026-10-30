@@ -11,3 +11,4 @@ export * from './postgres/doctors/delete-doctor.js'
 export * from './postgres/doctors/update-doctor.js'
 
 export * from './postgres/consults/create-consult.js'
+export * from './postgres/consults/get-consults-by-client-id.js'
