@@ -9,3 +9,4 @@ export * from './doctors/delete-doctor.js'
 export * from './doctors/update-doctor.js'
 
 export * from './consults/create-consult.js'
+export * from './consults/get-consults-by-client-id.js'
