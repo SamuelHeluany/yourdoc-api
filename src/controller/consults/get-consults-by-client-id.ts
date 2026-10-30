@@ -17,9 +17,9 @@ export class GetConsultsByClientIdController {
     constructor(
         private readonly getConsultsByClientIdUseCase: GetConsultsByClientIdUseCaseProps,
     ) {}
-    async execute(HttpRequest: HttpRequest): Promise<HttpResponse> {
+    async execute(httpRequest: HttpRequest): Promise<HttpResponse> {
         try {
-            const clientId = HttpRequest.query?.clientId
+            const clientId = httpRequest.query?.clientId
 
             if (!clientId) {
                 return requiredFieldMissingResponse('clientId')
