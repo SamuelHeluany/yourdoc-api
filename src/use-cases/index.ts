@@ -7,3 +7,5 @@ export * from './doctors/create-doctor.js'
 export * from './doctors/get-doctor-by-id.js'
 export * from './doctors/delete-doctor.js'
 export * from './doctors/update-doctor.js'
+
+export * from './consults/create-consult.js'
