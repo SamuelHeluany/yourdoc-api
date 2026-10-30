@@ -1,5 +1,5 @@
 import { Consults } from '../../../generated/prisma/client.js'
-import { ClientNotExistsError } from '../../errors/user.js'
+import { ClientNotExistsError } from '../../errors/client.js'
 import { GetConsultsByClientIdParams } from '../../use-cases/index.js'
 import { badRequest, ok, serverError } from '../helpers/http.js'
 import {

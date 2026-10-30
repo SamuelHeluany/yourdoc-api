@@ -2,7 +2,7 @@ import { Clients } from '../../../generated/prisma/client.js'
 import {
     ClientNotExistsError,
     EmailAlreadyInUseError,
-} from '../../errors/user.js'
+} from '../../errors/client.js'
 import { UpdateClientRepositoryParams } from '../../repositories/index.js'
 
 interface GetClientByIdRepositoryProps {

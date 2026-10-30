@@ -4,7 +4,7 @@ import { CreateConsultParams } from '../../repositories/index.js'
 import { createConsultSchema } from '../../schemas/consults.js'
 import { badRequest, created, serverError } from '../helpers/http.js'
 import { HttpRequest, HttpResponse } from '../types.js'
-import { ClientNotExistsError } from '../../errors/user.js'
+import { ClientNotExistsError } from '../../errors/client.js'
 import { DoctorNotExistsError } from '../../errors/doctor.js'
 
 interface CreateConsultUseCaseProps {

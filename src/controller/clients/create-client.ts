@@ -1,6 +1,6 @@
 import { ZodError } from 'zod'
 import { Clients } from '../../../generated/prisma/client.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 import { CreateClientParams } from '../../repositories/postgres/clients/create-client.js'
 import { createClientSchema } from '../../schemas/client.js'
 import { badRequest, created, serverError } from '../helpers/http.js'

@@ -8,7 +8,7 @@ import { HttpRequest, HttpResponse } from '../types.js'
 import {
     ClientNotExistsError,
     EmailAlreadyInUseError,
-} from '../../errors/user.js'
+} from '../../errors/client.js'
 
 interface updateClientUseCaseProps {
     execute({

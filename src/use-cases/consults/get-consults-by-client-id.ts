@@ -1,5 +1,5 @@
 import { Clients, Consults } from '../../../generated/prisma/client.js'
-import { ClientNotExistsError } from '../../errors/user.js'
+import { ClientNotExistsError } from '../../errors/client.js'
 
 interface GetClientByIdRepositoryProps {
     execute(clientId: string): Promise<Clients | null>

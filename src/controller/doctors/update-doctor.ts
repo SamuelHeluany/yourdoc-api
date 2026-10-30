@@ -5,7 +5,7 @@ import { updateDoctorSchema } from '../../schemas/doctor.js'
 import { badRequest, ok, serverError } from '../helpers/http.js'
 import { checkIfIdIsValid, invalidIdResponse } from '../helpers/validation.js'
 import { HttpRequest, HttpResponse } from '../types.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 
 interface UpdateDoctorUseCaseProps {
     execute({

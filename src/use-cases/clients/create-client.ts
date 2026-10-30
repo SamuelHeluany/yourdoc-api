@@ -1,5 +1,5 @@
 import { Clients } from '../../../generated/prisma/client.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 import { CreateClientParams } from '../../repositories/postgres/clients/create-client.js'
 import { v4 as uuidv4 } from 'uuid'
 

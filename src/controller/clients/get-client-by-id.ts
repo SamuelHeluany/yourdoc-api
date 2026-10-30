@@ -2,7 +2,7 @@ import { Clients } from '../../../generated/prisma/client.js'
 import { checkIfIdIsValid, invalidIdResponse } from '../helpers/validation.js'
 import { HttpRequest, HttpResponse } from '../types.js'
 import { ok, serverError } from '../helpers/http.js'
-import { clientNotFoundResponse } from '../helpers/user.js'
+import { clientNotFoundResponse } from '../helpers/client.js'
 
 interface GetClientByIdUseCaseProps {
     execute(clientId: string): Promise<Clients | null>

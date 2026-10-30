@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Doctors } from '../../../generated/prisma/client.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 import { CreateDoctorParams } from '../../repositories/index.js'
 
 // create doctor use case

@@ -1,6 +1,6 @@
 import { ZodError } from 'zod'
 import { Doctors } from '../../../generated/prisma/client.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 import { CreateDoctorParams } from '../../repositories/index.js'
 import { createDoctorSchema } from '../../schemas/doctor.js'
 import { badRequest, created, serverError } from '../helpers/http.js'

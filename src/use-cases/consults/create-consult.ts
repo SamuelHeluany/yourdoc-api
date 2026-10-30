@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { Clients, Consults, Doctors } from '../../../generated/prisma/client.js'
 import { DoctorNotExistsError } from '../../errors/doctor.js'
-import { ClientNotExistsError } from '../../errors/user.js'
+import { ClientNotExistsError } from '../../errors/client.js'
 import { CreateConsultParams } from '../../repositories/index.js'
 // Create consult use case
 interface GetClientByIdRepositoryProps {

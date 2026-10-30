@@ -1,6 +1,6 @@
 import { Doctors } from '../../../generated/prisma/client.js'
 import { DoctorNotExistsError } from '../../errors/doctor.js'
-import { EmailAlreadyInUseError } from '../../errors/user.js'
+import { EmailAlreadyInUseError } from '../../errors/client.js'
 import { UpdateDoctorRepositoryParams } from '../../repositories/index.js'
 
 interface GetDoctorByIdRepositoryProps {
